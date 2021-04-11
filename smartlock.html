@@ -1,0 +1,87 @@
+<!-- smart lock landing page -->
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title></title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<header id="header">
+				<a href="index.html" class="title">SeMin's Portfolio</a>
+				<nav>
+					<ul>
+						<li><a href="index.html">Home</a></li>
+					</ul>
+				</nav>
+			</header>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<section id="main" class="wrapper">
+						<div class="inner">
+							<h1 class="major">Smart Lock</h1>
+							<span class="image fit"><img src="images/lock.jpg" alt="" /></span>
+								<p><b>Summary</b><br>With conventional locks being outdated, we explored a way to create a modernized smart lock. The smart lock is able to be unlocked via Google Assistant/Phone and with a keypad and also has an auto lock feature. This allows the lock to be accessed from different locaitons. </p>
+
+								<b>Implementation</b><br>For this project, a scrum team management methodolody was used. Our sprints were divided up into 4 portions:
+								<ul>
+									<li>1st sprint<br> - Code keypad to lock and unlock solenoid<br> - Build breadboard circuit of lock<br> - Gather materials</li>
+									<li>2nd sprint<br>
+									 - Code connection to adafruit.io to allow actuations based off of data in an online feed<br>
+									  - Combine circuit and enclosure into final device</li>
+									  <li>3rd Sprint<br> 
+									  	- Print back enclosure
+									  	<br> - Test device runtime <br> 
+									  	- Add various features to previous adafruit code</li>
+ 									<li>4th Sprint<br>
+ 										- Build demo door 
+ 										<br> - Finalize prototype
+			  							</li>
+										</ul>
+ 									
+ 										
+ 										The smart lock surpassed our goal of 300 actuations, showcasing the useability of the device in a real world setting, allowing the operating time of the lock to be well over a month. The fabricated PCB allows safe and efficient power transmission to the door lock as opposed to protoboard. Heat dissipation from the voltage regulator is not an issue due to the vents located in the back enclosure. The smart lock can be unlocked by both Alexa and Google Assistant platforms using any smartphone linked to the lock’s IFTTT and adafruit.io account, as well as locally through the keypad. Data is kept of every unlock and lock, as well as attempted incorrect passwords for security reasons. Passwords can be changed using the pound button on the keypad. Once the device gets close to 300 actuations the keypad will start blinking to denote it is time to charge the batteries. 
+
+
+							<span class="image fit"><img src="images/" alt="" /></span>
+							<b>Major Tools/Components Used</b>
+							<ul>
+								<li>EagleCAD</li>
+								<li>ESP32 Microcontroller</li>
+								<li>Adafruit Matrix Keypad</li>
+								<li>Lock-style Solenoid</li>
+								<li>Arduino IDE</li>
+							</ul>
+							
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer" class="wrapper alt">
+				<div class="inner">
+					<ul class="menu">
+						<li>&copy; All rights reserved.</li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
