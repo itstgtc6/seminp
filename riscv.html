@@ -1,0 +1,100 @@
+<!-- risc-v landing page --> 
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title></title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<header id="header">
+				<a href="index.html" class="title">SeMin's Portfolio</a>
+				<nav>
+					<ul>
+						<li><a href="index.html">Home</a></li>
+					</ul>
+				</nav>
+			</header>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<section id="main" class="wrapper">
+						<div class="inner">
+							<h1 class="major">RISC-V ISA Simulator</h1>
+							<span class="image fit"><img src="images/" alt="" /></span>
+							<p>
+							<b>Project Description</b><br>For this project, the task was to write an instruction set architecture (ISA) level simulator for RISC-V in C. We were responsible for implementing the RV32I Base Integer Instruction Set as described in Chapter 2 of the RISC-V ISA Instruction Set Manual. Aside from the architecture itself, we specifically explored: 
+							<ul>
+								<li>The impact of instruction set architecture changes on CPI</li>
+								<li>Instruction counts for various program mixes or benchmarks</li>
+								<li>Generation of trace files useful for analyzing and testing results of decisions in branch predictor algorithms and cache designs</li>
+								<li>Developing and debugging compilers and system software</li>
+							</ul>
+							</p>
+
+							<b> Structure of Simulator </b><br>
+							The simulator takes in three input parameters:
+							<ul>
+								<li>Input memory image file</li>
+								<li>Starting address</li>
+								<li>Stack address</li>
+							</ul>
+
+							The only registers the simulator initializes or loads are the sp, pc, and ra registers. The simulation also continues until a jr ra instruction is encountered with ra == 0.
+
+							<br><br>
+
+							Simulator output was split into two modes: 
+							<ul>
+								<li>Verbose mode - Print the PC and hexadecimal value of each instruction as it's fetched along with the contents of each register after the instruction's execution</li>
+								<li>Silent mode - Print the PC of the final instruction and hexadecimal value of each register only at the end of the simulation.</li>
+							</ul>
+
+							<p>
+								<b>Methodology</b><br>
+								The first phase of the simulator was responsible for accepting and parsing the command line arguments. This was a straightforward task, using the parameters entered to set the file to be read, start address of the PC, stack address and the mode the program would run in (i.e. verbose) as well as the option of setting breakpoints. <br><br>
+
+								Next, the simulator reads in the memory image from the specified file. The total memory space was determined by dynamically allocating the memory large enough to house the value of the stack address entered. The contents of the memory image were then read into a 2-D array that housed the memory address as the first index, and the instructions as the second. After that, the contents of the array (our simulated memory) were ran through the IR_decoder function. <br><br>
+
+								The IR_decoder function was defined in a header file, and made a reference to the Reg_decoder function. Directives were used to define the hex values of the bit masks as well as the maximum memory size. The Reg_decoder subroutine was responsible for extracting the appropriate fields of each instruction. This included the immediate fields, destination, source, opcode, function and shamt fields. Once the fields were extracted, the IR_decoder used the opcode field to pinpoint the type of each instruction. From there, the operations were performed on the registers specified. After an instruction had been performed (executed), the program counter was advanced by four to fetch the next instruction in the array (memory). <br><br>
+
+								Subroutines were also implemented to traverse the code via breakpoints, print the contents of the register file and the PC. A function to print the contents of memory was also implemented. <br><br>
+
+								The test strategy employed was based on unit testing. Every operation of the simulator was tested individually via test cases. A portion of those test cases were created by translating C code to RISC-V assembly with the use of rvgcc. Other test cases were created by directly writing RISC-V assembly code.  
+
+								Testing was implemented in two phases: Decode, which validated that the instruction was properly decoded by the simulator and Execute, which validated that the instruction performed the correct operation. Values were cycled through the test cases to check for correctness. 
+							</p>
+
+							<span class="image fit"><img src="images/" alt="" /></span>
+
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer" class="wrapper alt">
+				<div class="inner">
+					<ul class="menu">
+						<li>&copy; All rights reserved.</li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
