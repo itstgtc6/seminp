@@ -1,0 +1,72 @@
+<!-- FREQUENCY DISPLAY LANDING PAGE-->
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title></title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<header id="header">
+				<a href="index.html" class="title">SeMin's Portfolio</a>
+				<nav>
+					<ul>
+						<li><a href="index.html">Home</a></li>
+					</ul>
+				</nav>
+			</header>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<section id="main" class="wrapper">
+						<div class="inner">
+							<h1 class="major">Frequency Driven Display</h1>
+							<span class="image fit"><img src="images/display.jpg" alt="" /></span>
+							<P>
+								<b>Introduction</b><br>
+								For this project, I built a music driven light up display. The objective of the design was to get a range from 0 freq - 1000+ freq. Four types of filters were used: lowpass, highpass and 2 bandpass filters each aimed at channeling different frequencies. The output of each filter was connected to a series LED lights that would light up when the given frequency fit the ranges of each filter. The frequency was provided through a 3.5mm audio jack but this alone didn't have enough voltage to power the LEDs and therefore it was paired with operational amplifiers and potentiometers to amplify the voltage.
+							</P>
+							<b>Schematic</b><br>
+							<span class="image fit"><img src="images/schematic.jpg" alt="" /></span>
+
+							<b>Specifications</b><br>
+							Filter Cutoff Frequencies:<br>
+								- Lowpass: 200Hz<br>
+								- 1st Bandpass: 200 - 500Hz<br>
+								- 2nd Bandpass: 500 - 1000Hz<br>
+								- Highpass: 1000Hz<br><br>
+
+							With these cutoff frequencies I was able to calculate different resistor values for each corresponding filter. Then after intense simulation of each filter as well as the overall circuit, I finally built the circuit itself. 
+
+							
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer" class="wrapper alt">
+				<div class="inner">
+					<ul class="menu">
+						<li>&copy; All rights reserved.</li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

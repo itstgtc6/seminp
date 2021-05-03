@@ -26,10 +26,42 @@
 				<!-- Main -->
 					<section id="main" class="wrapper">
 						<div class="inner">
-							<h1 class="major">UART/I2C Driver</h1>
-							<span class="image fit"><img src="images/" alt="" /></span>
-	
+							<h1 class="major">UART Driver</h1>
+							<P>
+							<b> UART Project Description </b><br>
+							This project's goal was to write a RS-232C Driver for an RC8660 Speech Synthesizer Board using assembly language. I was to write this driver in order to connect a BeagleBoneBlack to a talker board, and use the talker board to sound out what I program.
+							</P>
+
+							<b>Specifications and Methodology</b>
+							<br>
+							The serial port is the RC8660 was asynchronous and operates with 8 data bits, 1 or more stop bits, and any standard baud rate between 300 and 115200 bps. <br><br>
+
+							Based on the settings chsen in LCR, the UART transmitter sends the following to the recieving device:
+							<ul>
+								<li>1 START bit</li>
+								<li>4,6,7 or 8 data bits</li>
+								<li>1 PARITY bit(optional)</li>
+								<li>1,1.5, or 2 stop bits</li>
+							</ul>
+
+							The algorithm for initialization: <br>
+							- Initialize Stack<br>
+							- Initialize GPIO pins<br>
+							- Initialize peripheral device controllers<br>
+							- Detect falling edge on GPIO_2 and enable to asser POINTRPEND1<br>
+							- Initialize INTC<br>
+							- Turn on UART 5 Clock<br>
+							- Change pins 37, 38, 31, 32 to mode 4<br>
+							- Set baud rate and set to mode A <br>
+							- Write to DLL and DLH registers<br>
+							- Switch to operational mode<br>
+							- Initialize Tx and Rx<br>
+							- Disable FIFO<br>
+
+							<br> Then with an interrupt handshaking method, I was able to get the values to the talker board in x increments. <br><br>
+
 							
+
 						</div>
 					</section>
 

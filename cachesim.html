@@ -1,0 +1,88 @@
+<!-- CACHE SIMULATOR LANDING PAGE-->
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title></title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<header id="header">
+				<a href="index.html" class="title">SeMin's Portfolio</a>
+				<nav>
+					<ul>
+						<li><a href="index.html">Home</a></li>
+					</ul>
+				</nav>
+			</header>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<section id="main" class="wrapper">
+						<div class="inner">
+							<h1 class="major">Cache Simulator</h1>
+							<P>
+								<b>Project Description</b><br>
+										The goal of this project was to simulate a single level of cache in software. The simulator was to take a provided input address trace as its input and implement the workings of a cache. Specifically, the simulator kept track oh wich blocks are brought into the cache and which blocks are being evicted. Then at the completion of the trace, the simulator would provide statistics about cache hit ratio, read traffic, write traffic, etc. 
+							</P>
+	
+							<b> Structure of Simulator </b><br>
+							The simulator takes an address trace as its input. The trace captures the sequence of accesses that are being made to the cache. For each access, the trace provides the type of access and the memory address that is being accessed. Each line in the trace has the following format: <i>Access_type Hex_Address</i><br><br>
+
+							<i>Access_type</i> signifies the type of memory operation (read write or invalidate). It is encoded as follows: <i>Access_type = 0</i> indicates a read, <i>Access_type = 1</i> indicates a write and <i>Access_type = 2</i> indicates an invalidate operation. 
+
+							<br><br> 
+							The following parameters are configurable in the cache simulator:
+							<ul>
+								<li>num_sets</li>
+								<li>num_ways(associativity)</li>
+								<li>line_size(in bytes)</li>
+								<li>replacement poicy: supports True LRU and 1-bit LRU</li>
+							</ul>
+
+					
+							After the last access in the trace has been simulated, the simulator output includes the following statistics:
+							<ul>
+								<li>Total number of cache accesses</li>
+								<li>Number of cache reads</li>
+								<li>Number of cache writes</li>
+								<li>Number of invalidates</li>
+								<li>Number of cache hits</li>
+								<li>Number of cache misses</li>
+								<li>Cache hit ratio</li>
+								<li>Cache miss ratio</li>
+								<li>Number of evictions</li>
+								<li>Number of writebacks</li>
+							</ul>
+
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer" class="wrapper alt">
+				<div class="inner">
+					<ul class="menu">
+						<li>&copy; All rights reserved.</li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
